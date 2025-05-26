@@ -4,8 +4,6 @@ from gm.api import *
 import numpy as np
 import pandas as pd
 from datetime import datetime,timedelta
-
-
 def init(context):
     # 1、参数设置
     context.max_mv = 520e8                   # 最大市值
@@ -16,10 +14,8 @@ def init(context):
     context.max_call_rate = 0.06           # 最大开盘涨跌幅
     context.max_get_profit_rate = 0.04       # 最大获利比例
     context.zy_min_rate = 0.9                # 左压最小比例
-
     # 2、变量初始化
     context.n_days_limit_up_list = []        # 涨停股列表
-
     # 3、设置定时任务
     context.sell_time1 = '11:28:00'
     context.sell_time2 = '14:50:00'
@@ -27,8 +23,6 @@ def init(context):
     schedule(schedule_func=buy_algo, date_rule='1d', time_rule='09:28:00')
     schedule(schedule_func=sell_algo, date_rule='1d', time_rule=context.sell_time1)
     schedule(schedule_func=sell_algo, date_rule='1d', time_rule=context.sell_time2)
-    
-
 def algo_1(context):
     print('*'*88)
     unsubscribe(symbols='*', frequency='tick')            # 取消所有订阅
@@ -351,10 +345,10 @@ if __name__ == '__main__':
         backtest_slippage_ratio回测滑点比例
         backtest_match_mode市价撮合模式，以下一tick/bar开盘价撮合:0，以当前tick/bar收盘价撮合：1
         '''
-    run(strategy_id='ef13f522-10f9-11ef-9466-f46b8c02346f',
+    run(strategy_id='',
         filename='main.py',
         mode=MODE_BACKTEST,
-        token='47ca47f849b3a0f66ec0f7013bb56bb667d63a70',
+        token='',
         backtest_start_time='2023-07-01 08:00:00',
         backtest_end_time='2024-06-25 16:00:00',
         backtest_adjust=ADJUST_NONE,
