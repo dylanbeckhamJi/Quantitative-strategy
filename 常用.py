@@ -5,7 +5,8 @@ import numpy as np
 import pandas as pd
 from datetime import  datetime,timezone, timedelta
 import datetime
-pd.set_option('display.max_rows', None) #show all rows
+pd.set_option('display.max_rows', None) 
+pd.set_option('display.max_columns', None)  
 pd.set_option('display.float_format', '{:.2f}'.format)
 import warnings
 warnings.filterwarnings('ignore')
